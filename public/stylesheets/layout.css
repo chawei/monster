@@ -1,0 +1,193 @@
+/* Header
+ *
+ *
+ */
+ 
+#header_wrap {
+  text-align: center;
+}
+  #header {
+    text-align: left;
+    margin: 30px auto 10px;
+    position: relative;
+    width: 800px;
+    height: 50px;
+  }
+    #logo {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      font-size: 30px;
+    }
+      #logo a {
+      }
+    #login_box {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      font-size: 14px;
+    }
+      #greeting {
+        float: left;
+        padding: 0 15px 0 0;
+        border-right: 1px solid #333;
+      }
+      #actions {
+        float: left;
+        padding: 0 0 0 15px;
+      }
+      #login_box .signup {
+        margin: 0 20px 0 0;
+      }
+
+#navigation_wrap {
+  text-align: center;
+  margin: 10px 0 0;
+  background-color: #333;
+}
+  #navigation {
+    text-align: left;
+    margin: 0 auto 20px;
+    padding: 0 0 0px 0;
+    width: 800px;
+    height: 30px;
+    line-height: 30px;
+  }
+    #navigation ul {
+      list-style: none;
+      position: relative;
+      margin: 0;
+    }
+      #navigation ul li {
+        list-style: none;
+        display: block;
+        float: left;
+      }
+        #navigation li.last a {
+          margin: 0;
+        }
+        #navigation li a {
+          padding: 0px 10px;
+          margin: 0 0px 0 0;
+          font-size: 18px;
+          display: block;
+          font-family: Georgia, serif;
+          text-decoration: none;
+          background-color: #f2f2f2;
+          color: #29ABE2;
+        }
+          #navigation li a.selected {
+            color: #fff;
+            background-color: #29ABE2;
+          }
+        #navigation li a:hover {
+          color: #fff;
+          background-color: #29ABE2;
+        }
+        #navigation li:hover ul{
+          display: block;
+        }
+        #navigation li ul {
+          display: none;
+          list-style: none;
+          position: absolute;
+          top: 15px;
+          left: 0;
+          color: #fff;
+          background-color: #333;
+          margin: 0;
+          padding: 10px 0 10px 10px;
+          width: 100%;
+        }
+          #navigation li ul li {
+            list-style: none;
+            display: inline;
+            margin: 0 10px 0 0;
+          }
+          #navigation li ul li a {
+            color: #ddd;
+          }
+          #navigation li ul li a:hover {
+            color: #fff;
+          }
+    
+#main_wrap {
+  text-align: center;
+  margin: 10px 0 0;
+  padding: 0 0 50px 0;
+  /*overflow: hidden;*/
+}
+  #main_wrap div#main {
+    text-align: left;
+    margin: 0 auto;
+    width: 800px;
+  }
+    #main_wrap #main #sidebar {
+      text-align: left;
+      margin: 0 10px 0 0;
+      padding: 0 8px 0 0;
+      float: left;
+      width: 130px;
+      height: auto !important;
+      height: 300px;
+    }
+    #main_wrap #main #main_view {
+      text-align: left;
+      margin: 0;
+      padding: 0 0 0 20px;
+      float: left;
+      width: 630px;
+      border-left: 1px solid #ccc;
+      min-height: 400px;
+      height: auto !important;
+      height: 400px;
+    }
+    #product_main_view {
+      text-align: left;
+      margin: 0;
+      float: left;
+      width: 100%;
+    }
+
+
+#footer_wrap {
+  text-align: center;
+  margin: 10px 0 0;
+
+}
+  #footer {
+    text-align: left;
+    margin: 10px auto 50px;
+    position: relative;
+    width: 800px;
+  }
+  
+  #bookmarklet_container {
+    padding: 10px;
+    background-color: #f2f2f2;
+  }
+    #bookmarklet_container .explanation {
+      color: #666;
+    }
+    a#bookmarklet {
+      -moz-border-radius-bottomleft: 4px;
+      -moz-border-radius-bottomright: 4px;
+      -moz-border-radius-topleft: 4px;
+      -moz-border-radius-topright: 4px;
+      -webkit-border-bottom-left-radius: 4px 4px;
+      -webkit-border-bottom-right-radius: 4px 4px;
+      -webkit-border-top-left-radius: 4px 4px;
+      -webkit-border-top-right-radius: 4px 4px;
+      background: #29ABE2 none repeat scroll 0 0;
+      border: medium none;
+      color: #FFFFFF;
+      cursor: move;
+      width: inherit;
+      height: inherit;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 6px;
+      margin: 0 5px;
+      text-decoration: none;
+      white-space: nowrap;
+    }

@@ -1,0 +1,140 @@
+/* General
+ *
+ *
+ */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-family: Helvetica, sans-serif;
+  color: #333;
+}
+
+a {
+  color: #29ABE2;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0 0 20px 0;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+input {
+  font-size: 13px;
+  
+}
+
+select {
+  
+}
+
+textarea {
+  
+}
+
+p {
+  margin: 0 0 10px 0;
+}
+
+/* ----- Misc ----- */
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+.clear_fix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* IE7 Hack */
+.clear_fix {
+  clear: both;
+  *display: inline-block;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* Errors
+------------------- */
+#errorExplanation, #error_explanation {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2, #error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p, #error_explanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 8px;
+}
+
+#errorExplanation ul, #error_explanation ul {
+  margin: 2px 24px;
+}
+
+#errorExplanation ul li, #error_explanation ul li {
+  font-size: 12px;
+  list-style: disc;
+}
+
+/* Flash Messages
+------------------- */
+
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
