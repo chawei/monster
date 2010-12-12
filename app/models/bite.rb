@@ -12,7 +12,7 @@ class Bite < ActiveRecord::Base
         new_image_url = match[0]
       end
       uri = self.url.match(/(.*\/)/)[0]
-      return "http://#{uri}#{new_image_url}"
+      return "#{uri}#{new_image_url}"
     end
   end
   
