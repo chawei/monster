@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Url:</b>
+  <%= @bite.url %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @bite.image_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_bite_path(@bite) %> |
+<%= link_to 'Back', bites_path %>

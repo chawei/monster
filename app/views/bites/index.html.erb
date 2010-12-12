@@ -1,0 +1,25 @@
+<h1>Listing bites</h1>
+
+<table>
+  <tr>
+    <th>Url</th>
+    <th>Image url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bites.each do |bite| %>
+  <tr>
+    <td><%= bite.url %></td>
+    <td><%= bite.image_url %></td>
+    <td><%= link_to 'Show', bite %></td>
+    <td><%= link_to 'Edit', edit_bite_path(bite) %></td>
+    <td><%= link_to 'Destroy', bite, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bite', new_bite_path %>

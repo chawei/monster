@@ -1,0 +1,25 @@
+<%= form_for(@bite) do |f| %>
+  <% if @bite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bite.errors.count, "error") %> prohibited this bite from being saved:</h2>
+
+      <ul>
+      <% @bite.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
