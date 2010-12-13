@@ -1,6 +1,8 @@
 Monster::Application.routes.draw do
   root :to => "bites#index"
   
+  match "/tutorial", :to => "home#tutorial"
+  
   resources :bites do 
     collection do
       get 'upload'

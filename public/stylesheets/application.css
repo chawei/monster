@@ -1,6 +1,19 @@
 .bite {
-  margin: 0 0 10px 0;
+	float: left;
+  margin: 2px;
+}
+.bite img{
+	height: 70px;
 }
   .bite .image {
-    margin: 0 10 0 0;
+		height: 50px;
+    margin: 10 10 10 10;
   }
+
+#bitesTitle {
+	font-size: 21px;
+	margin-bottom: 10px;
+}
+
+/* Tutorial 
+------------------ */
