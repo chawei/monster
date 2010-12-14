@@ -64,7 +64,7 @@
         }
         #navigation li a {
           padding: 0px 10px;
-          margin: 0 0px 0 0;
+          margin: 0 10px 0 0;
           font-size: 14px;
           display: block;
           text-decoration: none;
@@ -73,9 +73,11 @@
         }
           #navigation li a.selected {
             color: #666666;
+					text-decoration: underline;
 /*            background-color: #29ABE2;*/
           }
         #navigation li a:hover {
+					text-decoration: underline;
 /*          color: #fff;*/
 /*          background-color: #29ABE2;*/
         }
