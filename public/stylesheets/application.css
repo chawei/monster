@@ -15,6 +15,22 @@
 	margin-bottom: 10px;
 }
 
+.biteContainer {
+	padding: 10px;
+	background-color: #F7F7F7;
+	display: inline-block;	
+}
+
+.latestBites {
+	padding: 10px;
+}
+
+#biteCount {
+	background-color: #F7F7F7;
+	padding:10px;
+	margin-bottom: 10px;
+}
+
 /* Tutorial 
 ------------------ */
 .tutorial {
