@@ -8,18 +8,19 @@
 }
   #header {
     text-align: left;
-    margin: 30px auto 10px;
+    margin: 30px auto 30px;
     position: relative;
     width: 800px;
-    height: 50px;
   }
     #logo {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      font-size: 30px;
+      float: left;
+      font-size: 16px;
+      background: url(/images/logo.png) no-repeat;
+      padding: 0 0 0 70px;
     }
       #logo a {
+        display: block;
+        padding: 15px 0 10px;
       }
     #login_box {
       position: absolute;
@@ -42,16 +43,12 @@
 
 #navigation_wrap {
   text-align: center;
-  margin: 10px 0 0;
-  background-color: #333;
+  margin: 20px 0 0 30px;
+  float: left;
 }
   #navigation {
     text-align: left;
-    margin: 0 auto 20px;
     padding: 0 0 0px 0;
-    width: 800px;
-    height: 30px;
-    line-height: 30px;
   }
     #navigation ul {
       list-style: none;
@@ -60,8 +57,7 @@
     }
       #navigation ul li {
         list-style: none;
-        display: block;
-        float: left;
+        display: inline-block;
       }
         #navigation li.last a {
           margin: 0;
@@ -69,11 +65,9 @@
         #navigation li a {
           padding: 0px 10px;
           margin: 0 0px 0 0;
-          font-size: 18px;
+          font-size: 14px;
           display: block;
-          font-family: Georgia, serif;
           text-decoration: none;
-          background-color: #f2f2f2;
           color: #29ABE2;
         }
           #navigation li a.selected {
