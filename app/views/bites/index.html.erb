@@ -4,8 +4,8 @@
 <div id="biteCount">Total Bites: <%= Bite.count %></div>
 
 <div class="biteContainer">
-  <%= image_tag @bites.last.normalized_image_url %>
-  <div>Bite at: <%= @bites.last.created_at.to_s(:long) %></div>
+  <%= image_tag @bites.first.normalized_image_url %>
+  <div>Bite at: <%= @bites.first.created_at.to_s(:long) %></div>
 </div>
 
 
