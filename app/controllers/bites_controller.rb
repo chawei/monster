@@ -85,6 +85,10 @@ class BitesController < ApplicationController
     @bite = Bite.new
     @bite.url = params[:url]
     @bite.image_url = params[:image_url]
+    @bite.top  = params[:top]
+    @bite.left = params[:left]
+    @bite.width  = params[:width]
+    @bite.height = params[:height]
 
     respond_to do |format|
       if @bite.save
