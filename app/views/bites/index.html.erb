@@ -13,7 +13,7 @@
 <% @bites.each do |bite| %>
 <span class="biteContainer">
   <span class=latest_image><%= image_tag bite.normalized_image_url %></span>
-	<div class="bite_time">bite@ <%= @bites.first.created_at.strftime("%m/%d/%y %R") %></div>
+	<div class="bite_time">bite@ <%= bite.created_at.strftime("%m/%d/%y %R") %></div>
   <!-- <span>from <%= link_to bite.url, bite.url %></span> -->
 </span>
 <% end %>
