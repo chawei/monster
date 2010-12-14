@@ -25,6 +25,10 @@
 	padding: 10px;
 }
 
+#latest_image img{
+	max-height: 300px;
+}
+
 #biteCount {
 	background-color: #F7F7F7;
 	padding:10px;
