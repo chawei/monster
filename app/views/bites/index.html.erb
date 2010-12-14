@@ -1,5 +1,11 @@
 <div id="bitesTitle">Latest Bites</div>
 
+<div>
+  <%= image_tag @bites.last.normalized_image_url %>
+  <div><%= @bites.last.created_at.to_s(:long) %></div>
+</div>
+
+<div>total: <%= Bite.count %></div>
 
 <% @bites.each do |bite| %>
 <span class="bite">

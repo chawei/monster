@@ -2,7 +2,7 @@ class BitesController < ApplicationController
   # GET /bites
   # GET /bites.xml
   def index
-    @bites = Bite.order('created_at DESC').limit(50)
+    @bites = Bite.order('created_at DESC').limit(100)
 
     respond_to do |format|
       format.html # index.html.erb
