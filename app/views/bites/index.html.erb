@@ -3,16 +3,17 @@
 <!-- <div id="bitesTitle">Latest Bites</div> -->
 <div id="biteCount">Total Bites: <%= Bite.count %></div>
 
-<div class="biteContainer">
-  <div id="latest_image"><%= image_tag @bites.first.normalized_image_url %></div>
+<!-- <div class="biteContainer">
+  <div class="latest_image"><%= image_tag @bites.first.normalized_image_url %></div>
   <div>Bite at: <%= @bites.first.created_at.strftime("%m/%d/%y %R") %></div>
-</div>
+</div> -->
 
 
-<div class="latestBites">
+<div>
 <% @bites.each do |bite| %>
-<span class="bite">
-  <span class=image><%= image_tag bite.normalized_image_url %></span>
+<span class="biteContainer">
+  <span class=latest_image><%= image_tag bite.normalized_image_url %></span>
+	<div>Bite at: <%= @bites.first.created_at.strftime("%m/%d/%y %R") %></div>
   <!-- <span>from <%= link_to bite.url, bite.url %></span> -->
 </span>
 <% end %>
