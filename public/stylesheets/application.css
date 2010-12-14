@@ -22,12 +22,19 @@
 	margin: 0 0 8px 0;
 }
 
+.bite_time {
+	padding: 0 5px 0 5px;
+	margin-top: 5px;
+	background-color: #fff;
+}
+
 .latestBites {
 	padding: 10px;
 }
 
 .latest_image img{
 	max-height: 250px;
+	max-width: 250px;	
 }
 
 #biteCount {
