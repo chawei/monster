@@ -1,6 +1,7 @@
 Monster::Application.routes.draw do
   root :to => "bites#index"
   
+  match "/about", :to => "home#about"
   match "/tutorial", :to => "home#tutorial"
   
   resources :bites do 
