@@ -18,7 +18,8 @@
 .biteContainer {
 	padding: 10px;
 	background-color: #F7F7F7;
-	display: inline-block;	
+	display: inline-block;
+	margin: 0 0 8px 0;
 }
 
 .latestBites {
