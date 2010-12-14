@@ -72,12 +72,14 @@
             color: #666666;
         }
           #navigation li a.selected {
+
             color: #666666;
-					text-decoration: underline;
+/*					text-decoration: underline;*/
 /*            background-color: #29ABE2;*/
           }
         #navigation li a:hover {
-					text-decoration: underline;
+
+/*					text-decoration: underline;*/
 /*          color: #fff;*/
 /*          background-color: #29ABE2;*/
         }
