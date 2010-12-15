@@ -1,7 +1,7 @@
 
 
 <!-- <div id="bitesTitle">Latest Bites</div> -->
-<div id="biteCount">Total Bites: <%= Bite.accessible.count %></div>
+
 
 <!-- 
 <% if @bites.first %>
@@ -14,6 +14,9 @@
 
 
 <div>
+	<span id="biteCount">
+		<div style="background-color:#fff;font-size:3em;font-weight:bold;padding-top:6px;margin-bottom:7px;text-align:center;"><%= Bite.accessible.count %></div>#Bites</span>
+	
 <% @bites.each do |bite| %>
 <span class="biteContainer">
   <div class=latest_image><%= image_tag bite.normalized_image_url %></div>

@@ -16,14 +16,13 @@
 }
 
 .biteContainer {
-	padding: 10px;
-	background-color: #F7F7F7;
+	padding: 8px 8px 6px 8px;
+	background-color: #fff;
 	display: inline-block;
-	margin: 0 0 8px 0;
 }
 
 .bite_time {
-	padding: 0 5px 0 5px;
+	padding: 0 2px 0 2px;
 	margin-top: 5px;
 	background-color: #fff;
 	display: inline-block;
@@ -34,22 +33,36 @@
 }
 
 .latest_image img{
-	max-height: 250px;
-	max-width: 250px;	
+	max-height: 200;
+	max-width: 200px;	
 }
 
 #biteCount {
-	background-color: #F7F7F7;
-	padding:10px;
+/*	background-color: #fff;*/
+	padding: 6px;
 	margin-bottom: 10px;
+	display: inline-block;
+}
+
+/* About
+------------------ */
+.about_desc {
+	font-size: 1.5em;
+	color: #fff;
+	background-color: #00D2C8;
+	
+	
 }
 
 /* Tutorial 
 ------------------ */
 .tutorial {
 	padding:10px 10px 6px 10px;
-	background-color: #F7F7F7;
-	margin-top: 10px;
+	background-color: #D9D9D9;
+/*	background-color: #ccc;*/
+	margin: 0px auto 10px auto;
+	position: relative;
+  width: 800px;	
 }
 	.tutorial_img {
 		width: 500px;
@@ -57,7 +70,7 @@
 	
 	.tutorial_detail {
 		float: right;
-		width: 266px;
+		width: 290px;
 	}
 	.tutorial_title {
 		color: #636363;
@@ -72,5 +85,6 @@
 		font-size: 1em;
 	}
 		.tutorial_desc  a {
+			color: #636363;
 			text-decoration: underline;
 		}
