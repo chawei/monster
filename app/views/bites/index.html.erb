@@ -1,12 +1,16 @@
 
 
 <!-- <div id="bitesTitle">Latest Bites</div> -->
-<div id="biteCount">Total Bites: <%= Bite.count %></div>
+<div id="biteCount">Total Bites: <%= Bite.accessible.count %></div>
 
-<!-- <div class="biteContainer">
+<!-- 
+<% if @bites.first %>
+<div class="biteContainer">
   <div class="latest_image"><%= image_tag @bites.first.normalized_image_url %></div>
   <div>Bite at: <%= @bites.first.created_at.strftime("%m/%d/%y %R") %></div>
-</div> -->
+</div> 
+<% end %>
+-->
 
 
 <div>

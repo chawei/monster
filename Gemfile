@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.3'
 
 gem 'simple-navigation'
+gem 'httparty'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

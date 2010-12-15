@@ -1,5 +1,9 @@
 class Bite < ActiveRecord::Base
   
+  scope :accessible, :conditions => { :accessible => true }
+  
+  before_save :set_accessible
+  
   def normalized_image_url
     if self.image_url =~ /^http/
       return self.image_url
@@ -16,4 +20,10 @@ class Bite < ActiveRecord::Base
     end
   end
   
+  protected
+  
+    def set_accessible
+      res = HTTParty.get(self.normalized_image_url)
+      res.code == 200 ? self.accessible = true : self.accessible = false
+    end
 end
