@@ -1,7 +1,7 @@
 class BitesController < ApplicationController
   
   def admin
-    @bites = Bite.accessible.order('created_at DESC')
+    @bites = Bite.accessible.order('created_at DESC').limit(200)
 
     respond_to do |format|
       format.html # index.html.erb
