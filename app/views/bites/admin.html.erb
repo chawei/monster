@@ -1,0 +1,17 @@
+<% @bites.each do |bite| %>
+<span class="biteContainer">
+  <div class=latest_image><%= image_tag bite.normalized_image_url %></div>
+	<div class="bite_time">bite@ <%= bite.created_at.strftime("%m/%d/%y %R") %></div>
+  <!-- <span>from <%= link_to bite.url, bite.url %></span> -->
+  <%= form_for(bite) do |f| %>
+    <%= hidden_field_tag :admin, '1' %>
+    <div class="field">
+      <%= f.label :hidden %><br />
+      <%= f.check_box :hidden %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</span>
+<% end %>

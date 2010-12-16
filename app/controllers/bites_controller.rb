@@ -1,8 +1,18 @@
 class BitesController < ApplicationController
+  
+  def admin
+    @bites = Bite.accessible.order('created_at DESC').limit(100)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @bites }
+    end
+  end
+  
   # GET /bites
   # GET /bites.xml
   def index
-    @bites = Bite.accessible.order('created_at DESC').limit(100)
+    @bites = Bite.visible.accessible.order('created_at DESC').limit(100)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -60,7 +70,13 @@ class BitesController < ApplicationController
 
     respond_to do |format|
       if @bite.update_attributes(params[:bite])
-        format.html { redirect_to(@bite, :notice => 'Bite was successfully updated.') }
+        format.html do 
+          if params[:admin] == '1'
+            redirect_to admin_path
+          else
+            redirect_to(@bite, :notice => 'Bite was successfully updated.') 
+          end
+        end
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

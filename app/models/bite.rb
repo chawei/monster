@@ -1,6 +1,7 @@
 class Bite < ActiveRecord::Base
   
   scope :accessible, :conditions => { :accessible => true }
+  scope :visible, :conditions => ["hidden is NULL or hidden = ?", false ]
   
   before_save :set_accessible
   

@@ -3,6 +3,7 @@ Monster::Application.routes.draw do
   
   match "/about", :to => "home#about"
   match "/tutorial", :to => "home#tutorial"
+  match "/admin", :to => "bites#admin"
   
   resources :bites do 
     collection do
