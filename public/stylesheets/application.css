@@ -56,16 +56,28 @@
 /* About
 ------------------ */
 .about_desc {
-	font-size: 1.3em;
+	font-size: 1.6em;
 	color: #666;
 /*	background-color: #00D2C8;*/
 	width: 800px;
 	margin: 0 auto;
+	margin-bottom: 20px;
 }
 
 .about_desc  a {
 	color: #666;
 	text-decoration: underline;
+}
+
+.about_image {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.about_image img {
+	width: 390px;
+	margin: 4px;
+	border: 3px solid #eee;
 }
 
 /* Tutorial 
