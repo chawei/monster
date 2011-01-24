@@ -25,6 +25,6 @@ class Bite < ActiveRecord::Base
   
     def set_accessible
       res = HTTParty.get(URI.escape(self.normalized_image_url))
-      res.code == 200 ? self.accessible = true : self.accessible = false
+      res.code == 500 ? self.accessible = true : self.accessible = false
     end
 end
