@@ -13,10 +13,12 @@
 -->
 
 
-<div>
+<span>
 	<span id="biteCount">
-		<div style="background-color:#fff;font-size:3em;font-weight:bold;padding-top:6px;margin-bottom:7px;text-align:center;"><%= Bite.accessible.count %></div>#Bites</span>
+		<div id="number"><%= Bite.accessible.count %></div>#Bites</span>
+</span>	
 	
+<span style="position:absolute; left:120px;">
 <% @bites.each do |bite| %>
 <span class="biteContainer">
   <div class=latest_image><%= image_tag bite.normalized_image_url %></div>
@@ -24,4 +26,4 @@
   <!-- <span>from <%= link_to bite.url, bite.url %></span> -->
 </span>
 <% end %>
-</div>
+</span>

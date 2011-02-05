@@ -8,9 +8,11 @@
 }
   #header {
     text-align: left;
-    margin: 30px auto 0px;
-    position: relative;
-    width: 800px;
+		margin-bottom: 18px;
+		left: 120px;
+		top: 20px;
+    position: absolute;
+		
   }
     #logo {
       float: left;
@@ -112,15 +114,18 @@
     
 #main_wrap {
   text-align: center;
-  margin: 10px 0 0;
-  padding: 0 0 50px 0;
+/*  margin: 10px 0 0;*/
+/*  padding: 0 0 50px 0;*/
+	position: absolute;
+	left: 0px;
+	top: 90px;
+	width: 100%;
   /*overflow: hidden;*/
 }
   #main_wrap div#main {
-		background-color: #F0F0F0;
+/*		background-color: #F0F0F0;*/
     text-align: left;
     margin: 0 auto;
-    width: 99%;  /*  why not 100% */
 		padding: 10px 10px 10px 10px;
   }
     #main_wrap #main #sidebar {

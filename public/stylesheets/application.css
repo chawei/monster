@@ -17,7 +17,8 @@
 
 .biteContainer {
 	padding: 8px 8px 6px 8px;
-	background-color: #fff;
+	background-color: #eee;
+	margin: 0 3px 8px 0px;
 	display: inline-block;
 }
 
@@ -25,7 +26,7 @@
 	padding: 0 2px 0 2px;
 	margin-top: 5px;
 	font-size: 0.8em;
-	background-color: #fff;
+/*	background-color: #fff;*/
 	display: inline-block;
 }
 
@@ -34,25 +35,33 @@
 }
 
 .latest_image img{
-	max-height: 200;
+	max-height: 200px;
 	max-width: 200px;	
 }
 
 #biteCount {
-/*	background-color: #fff;*/
-	padding: 6px;
-	margin-bottom: 10px;
+	background-color: #d5d5d5;
+	padding: 6px 6px 4px 6px;
 	display: inline-block;
 }
 
+#biteCount #number {
+	padding: 8px 8px 0px;
+	background-color:#fff;
+	font-size:2em;
+	font-weight:bold;
+	margin-bottom:9px;
+	text-align:center;
+}
 /* About
 ------------------ */
 .about_desc {
-	font-size: 1.3em;
+	font-size: 1.6em;
 	color: #666;
 /*	background-color: #00D2C8;*/
 	width: 800px;
 	margin: 0 auto;
+	margin-bottom: 20px;
 }
 
 .about_desc  a {
@@ -60,13 +69,24 @@
 	text-decoration: underline;
 }
 
+.about_image {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.about_image img {
+	width: 390px;
+	margin: 4px;
+	border: 3px solid #eee;
+}
+
 /* Tutorial 
 ------------------ */
 .tutorial {
 	padding:10px 10px 6px 10px;
-/*	background-color: #D9D9D9;*/
+	background-color: #D9D9d9;
 /*	background-color: #ccc;*/
-	margin: 0px auto 0px auto;
+	margin: 0px auto 10px auto;
 	position: relative;
   width: 800px;	
 }
