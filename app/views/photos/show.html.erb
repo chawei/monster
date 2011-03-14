@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Original url:</b>
+  <%= @photo.original_url %>
+</p>
+
+<p>
+  <b>Data file name:</b>
+  <%= @photo.data_file_name %>
+</p>
+
+<p>
+  <b>Data file size:</b>
+  <%= @photo.data_file_size %>
+</p>
+
+<p>
+  <b>Data content type:</b>
+  <%= @photo.data_content_type %>
+</p>
+
+<p>
+  <b>Data updated at:</b>
+  <%= @photo.data_updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>

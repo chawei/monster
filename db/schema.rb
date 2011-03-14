@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101216175429) do
+ActiveRecord::Schema.define(:version => 20110314214856) do
 
   create_table "bites", :force => true do |t|
     t.string   "url"
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(:version => 20101216175429) do
     t.string   "height"
     t.boolean  "accessible"
     t.boolean  "hidden"
+  end
+
+  create_table "bites_photos", :id => false, :force => true do |t|
+    t.integer  "bite_id"
+    t.integer  "photo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "original_url"
+    t.string   "data_file_name"
+    t.integer  "data_file_size"
+    t.string   "data_content_type"
+    t.datetime "data_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

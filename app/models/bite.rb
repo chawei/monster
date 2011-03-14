@@ -1,9 +1,29 @@
 class Bite < ActiveRecord::Base
+  has_and_belongs_to_many :photos
   
   scope :accessible, :conditions => { :accessible => true }
   scope :visible, :conditions => ["hidden is NULL or hidden = ?", false ]
   
   before_save :set_accessible
+  
+  def self.without_photo
+    joins("LEFT OUTER JOIN bites_photos ON bites_photos.bite_id = bites.id").where("bites_photos.photo_id IS NULL")
+  end
+  
+  def photo
+    photos.first
+  end
+  
+  def create_photo_by_image_url
+    photo = Photo.create(:original_url => self.normalized_image_url)
+    if photo && photo.data.exists?
+      self.photos << photo
+    else
+      photo.destroy
+      self.accessible = false
+      self.save
+    end  
+  end
   
   def normalized_image_url
     if self.image_url =~ /^http/
