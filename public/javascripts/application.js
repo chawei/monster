@@ -2,28 +2,23 @@
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function() {
 	initCalendar();
-	//initIPList();
 });
 
 function initIPList() {
 	$('.ip_list .ip').click(function() {
+	  var img_domain = $(this).attr('rel');
+	  
 		if( $(this).hasClass('ip_selected') ) {
 			$(this).removeClass('ip_selected');
 			// gray out others
+			$('.'+img_domain).animate({opacity: 1.0}, 600);
 		}
 		else {
 			$(this).addClass('ip_selected');
 			// gray out others
+			$('.'+img_domain).animate({opacity: 0.5}, 600);
 		}	
 	});
-	$('.ip_list .ip').mouseenter(function() {
-		$(this).css('color','#FF0092');
-		$(this).css('font-style','italic');
-	});
-	$('.ip_list .ip').mouseleave(function() {
-		$(this).css('color','#000');
-		$(this).css('font-style','normal');
-	});	 
 }
 
 function initCalendar() {

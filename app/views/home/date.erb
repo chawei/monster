@@ -15,7 +15,9 @@
 			<div class="img_container">
 			  <% @bites.each do |bite| %>
 			    <% if !bite.photo.nil? && bite.photo.data.exists? %>
-			    <a href="<%= bite.photo.data.url(:medium) %>" rel="img_group"><%= image_tag bite.photo.data.url(:thumb) %></a>
+			    <a href="<%= bite.photo.data.url(:medium) %>" rel="img_group" class="<%= bite.domain_name.gsub(/\./, '-') %>">
+			      <%= image_tag bite.photo.data.url(:thumb) %>
+			    </a>
 			    <% end %>
 			  <% end %>
 			</div>
@@ -27,7 +29,7 @@
 		<% @factor = get_factor(@top_sources) %>
 		<% @top_sources.each do |source| %>		
   		<% unless source[0].nil? %>
-  		<div class="ip" style="font-size:<%= get_font_size(@factor, source[1], @top_sources[-1][1]) %>px">
+  		<div class="ip" rel="<%= source[0].gsub(/\./, '-') %>"style="font-size:<%= get_font_size(@factor, source[1], @top_sources[-1][1]) %>px">
   		  <%= source[0].gsub(/^www\./, '') %> <span style="font-style:italic"><%= source[1] %></span>
   		</div>
   		<% end %>
@@ -57,6 +59,8 @@
 			'transitionOut'		: 'none',
 			'titlePosition' 	: 'over',
 		});
+		
+		initIPList();
   });
 </script>
 <% end %>

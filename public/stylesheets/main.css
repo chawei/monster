@@ -59,6 +59,13 @@ img {
 	}
 	.ip_list .ip {
 		padding-bottom: 2px;
+		color: #000;
+		font-style: normal;
+	}
+
+	.ip_list .ip:hover, .ip_list div.ip_selected {
+	  color: #FF0092;
+		font-style: italic;
 	}
 
 .content {
