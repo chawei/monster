@@ -1,7 +1,7 @@
 class Photo < ActiveRecord::Base
   has_and_belongs_to_many :bites
   
-  has_attached_file :data, :styles => { :medium => "300x300>", 
+  has_attached_file :data, :styles => { :medium => "500x500>", 
                                         :thumb => "60x60#" },
                            :storage => :s3, 
                            :s3_credentials => {

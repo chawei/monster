@@ -22,7 +22,7 @@ namespace :update do
   
   desc "create photo by image_url"
   task :bite_photo => :environment do
-    Bite.accessible.without_photo.readonly(false).find_in_batches do |bites|
+    Bite.accessible.without_photo.readonly(false).find_in_batches(:batch_size => 100) do |bites|
       bites.each do |bite|
         bite.create_photo_by_image_url
         puts "== ID: #{bite.id} URL: #{bite.normalized_image_url} DOMAIN: #{bite.photo.try(:data).try(:url)}"
