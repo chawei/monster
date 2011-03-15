@@ -1,7 +1,7 @@
 module ApplicationHelper
   
   def get_factor(sources)
-    diff = sources[0][1] - sources[-1][1]
+    diff = sources[0][1].to_i - sources[-1][1].to_i
     factor = diff/16
   end
   
