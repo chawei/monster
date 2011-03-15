@@ -47,7 +47,7 @@ img {
 
 .ip_list {
 	text-align: left;
-	width: 290px;
+	width: 330px;
 	margin-left: 10px;
 	float: left;
 }
@@ -63,10 +63,14 @@ img {
 		font-style: normal;
 	}
 
-	.ip_list .ip:hover, .ip_list div.ip_selected {
+	.clickable_list .ip:hover, .clickable_list div.ip_selected {
 	  color: #FF0092;
 		font-style: italic;
 	}
+	
+.ip_list .section {
+  margin: 0 0 20px 0;
+}
 
 .content {
 	width: 710px;

@@ -1,5 +1,5 @@
 <center>
-<div id="main">
+<div id="main" class="clear_fix">
 	<div class="content">
 		
 		<div id="latest_label">Latest 50 Bites of Today</div>
@@ -67,16 +67,16 @@
     <% end %>
 	</div>
 	
-	<div class="ip_list">
-		<div class="title">Top 20 Sources</div>
-		<% @factor = get_factor(@top_sources) %>
-		<% @top_sources.each do |source| %>		
-  		<% unless source[0].nil? %>
-  		<div class="ip" style="font-size:<%= get_font_size(@factor, source[1], @top_sources[-1][1]) %>px">
-  		  <%= source[0].gsub(/^www\./, '') %> <span style="font-style:italic"><%= source[1] %></span>
-  		</div>
-  		<% end %>
-		<% end %>
+	<div class="ip_list">		
+	  <div class="section">
+  		<div class="title">Top 20 Crime Scenes</div>
+  		<%= render :partial => 'shared/top_sources', :locals => { :top_sources => @top_sources } %>
+  	</div>
+  	
+  	<div class="section">
+		  <div class="title">Total Bites</div>
+		  <%= Bite.all_count %>
+		</div>
 	</div>
 
 </div>

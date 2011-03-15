@@ -32,6 +32,10 @@ class Bite < ActiveRecord::Base
     visible.accessible.where(:created_at => (date)..(date+1.day)).count
   end
   
+  def self.all_count
+    visible.accessible.count
+  end
+  
   def get_domain_name
     begin
       uri = URI.parse(URI.encode(self.url))
