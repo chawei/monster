@@ -4,7 +4,7 @@
 	<% # get_font_size(@factor, source[1], @top_sources[-1][1]) %>
 	<% font_size -= 1 %>
 	<% unless source[0].nil? %>
-	<div class="ip" style="font-size:<%= font_size %>px">
+	<div class="ip" rel="<%= source[0].gsub(/\./, '-') %>" style="font-size:<%= font_size %>px">
 	  <%= source[0].gsub(/^www\./, '') %> <span style="font-style:italic"><%= source[1] %></span>
 	</div>
 	<% end %>
