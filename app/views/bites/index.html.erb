@@ -12,16 +12,19 @@
 			</div>
 		
 			<div class="img_container">
+			  <% unless @today_bites.empty? %>
 			  <%= link_to date_path(:date => @today_date.strftime("%Y%m%d")) do %>
   			  <% @today_bites.each do |bite| %>
   			    <span><%= image_tag bite.photo.data.url(:thumb) unless bite.photo.nil? %></span>
   			  <% end %>
+			  <% end %>
 			  <% end %>
 			</div>
 			
 			<div class="clear"></div>
 		</div>
 		
+		<% cache("date-archive") do %>
 		<div id="calendar">
 			<div class="month clear">
 				<div id="archive">Archive</div>
@@ -61,7 +64,7 @@
 			</div>
 			<% end %>			
 		</div>
-
+    <% end %>
 	</div>
 	
 	<div class="ip_list">

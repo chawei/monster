@@ -11,12 +11,12 @@ function initIPList() {
 		if( $(this).hasClass('ip_selected') ) {
 			$(this).removeClass('ip_selected');
 			// gray out others
-			$('.'+img_domain).animate({opacity: 1.0}, 600);
+			$('.img_container a').not('.'+img_domain).animate({opacity: 1.0}, 600);
 		}
 		else {
 			$(this).addClass('ip_selected');
 			// gray out others
-			$('.'+img_domain).animate({opacity: 0.5}, 600);
+			$('.img_container a').not('.'+img_domain).animate({opacity: 0.5}, 600);
 		}	
 	});
 }

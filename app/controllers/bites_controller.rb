@@ -1,7 +1,8 @@
 class BitesController < ApplicationController
+  cache_sweeper :bite_sweeper
   
   def admin
-    @bites = Bite.accessible..order('created_at DESC').limit(300)
+    @bites = Bite.accessible.order('created_at DESC').limit(300)
 
     respond_to do |format|
       format.html # index.html.erb
