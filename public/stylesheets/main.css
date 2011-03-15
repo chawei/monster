@@ -98,7 +98,7 @@ img {
 		margin-left:10px;
 		float: left;
 	}
-		.today .img_container span {
+		.today .img_container span, .today .img_container a {
 			display: inline-block;
 			float: left;
 		}

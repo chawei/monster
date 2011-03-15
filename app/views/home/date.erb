@@ -14,7 +14,9 @@
 		
 			<div class="img_container">
 			  <% @bites.each do |bite| %>
-			    <span><%= image_tag bite.photo.data.url(:thumb) unless bite.photo.nil? %></span>
+			    <% if !bite.photo.nil? && bite.photo.data.exists? %>
+			    <a href="<%= bite.photo.data.url(:medium) %>" rel="img_group"><%= image_tag bite.photo.data.url(:thumb) %></a>
+			    <% end %>
 			  <% end %>
 			</div>
 		</div>
@@ -40,3 +42,21 @@
 	<span id="monster_wall"><a href="/">Monster Wall</a></span> /
 	<span id="monster_about"><a href="/about">About</a></span>
 </div>
+
+<% content_for :foot do %>
+<link rel="stylesheet" type="text/css" href="/javascripts/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+<% end %>
+
+<% content_for :foot do %>
+<script type="text/javascript" src="/javascripts/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="/javascripts/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $(".img_container a[rel=img_group]").fancybox({
+			'transitionIn'		: 'none',
+			'transitionOut'		: 'none',
+			'titlePosition' 	: 'over',
+		});
+  });
+</script>
+<% end %>

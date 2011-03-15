@@ -12,8 +12,10 @@
 			</div>
 		
 			<div class="img_container">
-			  <% @today_bites.each do |bite| %>
-			    <span><%= image_tag bite.photo.data.url(:thumb) unless bite.photo.nil? %></span>
+			  <%= link_to date_path(:date => @today_date.strftime("%Y%m%d")) do %>
+  			  <% @today_bites.each do |bite| %>
+  			    <span><%= image_tag bite.photo.data.url(:thumb) unless bite.photo.nil? %></span>
+  			  <% end %>
 			  <% end %>
 			</div>
 			
