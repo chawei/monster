@@ -6,6 +6,7 @@ class Bite < ActiveRecord::Base
   
   before_create :set_accessible
   before_save   :get_domain_name
+  after_create  :create_photo_by_image_url
   
   def self.without_photo
     joins("LEFT OUTER JOIN bites_photos ON bites_photos.bite_id = bites.id").where("bites_photos.photo_id IS NULL")
