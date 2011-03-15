@@ -4,10 +4,20 @@ class Bite < ActiveRecord::Base
   scope :accessible, :conditions => { :accessible => true }
   scope :visible, :conditions => ["hidden is NULL or hidden = ?", false ]
   
-  before_save :set_accessible
+  before_create :set_accessible
+  before_save   :get_domain_name
   
   def self.without_photo
     joins("LEFT OUTER JOIN bites_photos ON bites_photos.bite_id = bites.id").where("bites_photos.photo_id IS NULL")
+  end
+  
+  def get_domain_name
+    begin
+      uri = URI.parse(URI.encode(self.url))
+      self.domain_name = uri.host
+    rescue
+      puts "Error when parsing ID: #{self.id} URL: #{self.url}"
+    end
   end
   
   def photo

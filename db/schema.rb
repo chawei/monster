@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110314214856) do
+ActiveRecord::Schema.define(:version => 20110314235801) do
 
   create_table "bites", :force => true do |t|
     t.string   "url"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20110314214856) do
     t.string   "height"
     t.boolean  "accessible"
     t.boolean  "hidden"
+    t.string   "domain_name"
   end
 
   create_table "bites_photos", :id => false, :force => true do |t|
