@@ -15,7 +15,7 @@
 		
 			<div class="img_container">
 			  <% @bites.each do |bite| %>
-			    <% if !bite.photo.nil? && bite.photo.data.exists? %>
+			    <% if !bite.photo.nil? && bite.photo.data.exists? && !bite.domain_name.nil? %>
 			    <a href="<%= bite.photo.data.url(:medium) %>" rel="img_group" class="<%= bite.domain_name.gsub(/\./, '-') %>">
 			      <%= image_tag bite.photo.data.url(:thumb) %>
 			    </a>
