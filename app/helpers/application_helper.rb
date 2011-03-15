@@ -11,7 +11,7 @@ module ApplicationHelper
     if factor == 0
 		  font_size = min_font_size
 		else
-		  font_size = ((mid_value - min)/factor) + min_font_size 
+		  font_size = ((mid_value.to_i - min.to_i)/factor) + min_font_size 
 		end
 		return font_size
   end
