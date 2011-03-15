@@ -1,7 +1,7 @@
 class BitesController < ApplicationController
   
   def admin
-    @bites = Bite.accessible.order('created_at DESC').limit(300)
+    @bites = Bite.accessible..order('created_at DESC').limit(300)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,8 +12,10 @@ class BitesController < ApplicationController
   # GET /bites
   # GET /bites.xml
   def index
-    @bites = Bite.visible.accessible.order('created_at DESC').limit(500)
-
+    @today_bites = Bite.today.limit(50)
+    @today_date = Date.today
+    @top_sources = Bite.top_sources.limit(20).map { |b| [b.domain_name, b.cnt] }
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @bites }

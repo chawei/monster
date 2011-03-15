@@ -11,6 +11,27 @@ class Bite < ActiveRecord::Base
     joins("LEFT OUTER JOIN bites_photos ON bites_photos.bite_id = bites.id").where("bites_photos.photo_id IS NULL")
   end
   
+  def self.today
+    date = Date.today
+    return on(date)
+  end
+  
+  def self.on(date)
+    return visible.accessible.where(:created_at => (date)..(date+1.day)).order('created_at DESC')
+  end
+  
+  def self.top_sources_on(date)
+    select("count(*) as cnt, domain_name").visible.accessible.where(:created_at => (date)..(date+1.day)).group("domain_name").order("cnt DESC")
+  end
+  
+  def self.top_sources
+    select("count(*) as cnt, domain_name").visible.accessible.group("domain_name").order("cnt DESC")
+  end
+  
+  def self.count_on(date)
+    visible.accessible.where(:created_at => (date)..(date+1.day)).count
+  end
+  
   def get_domain_name
     begin
       uri = URI.parse(URI.encode(self.url))

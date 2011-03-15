@@ -3,6 +3,7 @@ Monster::Application.routes.draw do
 
   root :to => "bites#index"
   
+  match "/date" => "home#date"
   match "/about", :to => "home#about"
   match "/tutorial", :to => "home#tutorial"
   match "/admin", :to => "bites#admin"

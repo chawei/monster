@@ -1,0 +1,42 @@
+<center>
+<div id="main">
+
+	<div class="content">
+		
+		<div id="latest_label">Monster Bites on <%= @date.strftime("%b.%e.%Y") %></div>
+		
+		<div class="today clear_fix">
+			<div class="left_col left">
+				<div class="date">
+				  <div id="count"><%= @bites.count %></div>
+				</div>
+			</div>
+		
+			<div class="img_container">
+			  <% @bites.each do |bite| %>
+			    <span><%= image_tag bite.photo.data.url(:thumb) unless bite.photo.nil? %></span>
+			  <% end %>
+			</div>
+		</div>
+	</div>
+	
+	<div class="ip_list">
+		<div class="title">Top 10 Sources</div>
+		<% @factor = get_factor(@top_sources) %>
+		<% @top_sources.each do |source| %>		
+  		<% unless source[0].nil? %>
+  		<div class="ip" style="font-size:<%= get_font_size(@factor, source[1], @top_sources[-1][1]) %>px">
+  		  <%= source[0].gsub(/^www\./, '') %> <span style="font-style:italic"><%= source[1] %></span>
+  		</div>
+  		<% end %>
+		<% end %>
+	</div>
+
+</div>
+	
+</center>
+
+<div id="menu">
+	<span id="monster_wall"><a href="/">Monster Wall</a></span> /
+	<span id="monster_about"><a href="/about">About</a></span>
+</div>

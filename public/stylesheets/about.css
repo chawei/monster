@@ -1,0 +1,59 @@
+.tutorial {
+	text-align: left;
+	margin: 0px 0 0px 4px;
+	height: 180px;
+/*	font-style: italic;*/
+}
+
+.tutorial_img {
+	float: left;
+}
+	
+.tutorial_detail {
+	margin-top:4px;
+	width: 260px;
+	float: left;
+	margin-left: 10px;
+	font-size: 15px;
+}
+.tutorial_title {
+	margin-bottom: 8px;
+	font-weight: bold;
+}
+.about_title {
+	text-align: left;
+	font-size: 18px;
+	border-bottom: 1px solid #000;
+	margin-bottom: 10px;
+}
+
+.topic {
+	width: 800px;
+	text-align: left;
+	font-size: 15px;
+	margin: 0 0 60px 0;
+}
+
+#about_desc {
+	width:410px; 
+	float:left;
+	text-indent:30px;
+	font-size:18px;
+/*	font-style:italic;*/
+	padding-left:20px;
+	padding-top:8px;
+	line-height: 21px;
+}
+
+#about_desc a{
+	text-decoration: underline;
+}
+
+.screenshot {
+	float:left;
+	margin: 0 0 20px 4px;
+}
+
+.screenshot img {
+	width:350px;
+}

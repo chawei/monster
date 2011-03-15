@@ -1,29 +1,84 @@
+<center>
+<div id="main">
+	<div class="content">
+		
+		<div id="latest_label">Latest 50 Bites of Today</div>
+		
+		<div class="today">
+			<div class="left_col left">
+				<div class="date">
+				  <%= link_to @today_bites.count, date_path(:date => @today_date.strftime("%Y%m%d")), :id => 'count' %>
+				</div>
+			</div>
+		
+			<div class="img_container">
+			  <% @today_bites.each do |bite| %>
+			    <span><%= image_tag bite.photo.data.url(:thumb) unless bite.photo.nil? %></span>
+			  <% end %>
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+		
+		<div id="calendar">
+			<div class="month clear">
+				<div id="archive">Archive</div>
+			</div>
+			
+			<% months = [] %>
+			<% @today_date.month.downto(1) { |n| months << n } %>
+			
+			<div class="month clear_fix">
+				<div class="title"><%= Date::ABBR_MONTHNAMES[@today_date.month] %> 2011</div>
+				<div class="dates_container left expanded">
+				  <div class="dates clear_fix">
+    				<% (@today_date - 1.day).downto(Date.civil(2011, @today_date.month, 1)) do |date| %>
+    				<div class="date">
+    					<%= link_to Bite.count_on(date), date_path(:date => date.strftime("%Y%m%d")), :class => 'count' %>
+    					<div class="time"><%= date.day.ordinalize %></div>
+    				</div>
+    				<% end %>
+    			</div>
+    		</div>
+			</div>
+			
+			<% months[1..-1].each do |month| %>
+			<% month_name = Date::ABBR_MONTHNAMES[month] %>
+			<div class="month clear_fix">
+				<div class="title left"><%= month_name %> 2011</div>
+				<div class="dates_container left hidden">
+				  <div class="dates clear_fix">
+    				<% Date.civil(2011, month, -1).downto(Date.civil(2011, month, 1)) do |date| %>
+    				<div class="date">
+    					<%= link_to Bite.count_on(date), date_path(:date => date.strftime("%Y%m%d")), :class => 'count' %>
+    					<div class="time"><%= date.day.ordinalize %></div>
+    				</div>
+    				<% end %>
+    			</div>
+  			</div>
+			</div>
+			<% end %>			
+		</div>
 
-
-<!-- <div id="bitesTitle">Latest Bites</div> -->
-
-
-<!-- 
-<% if @bites.first %>
-<div class="biteContainer">
-  <div class="latest_image"><%= image_tag @bites.first.normalized_image_url %></div>
-  <div>Bite at: <%= @bites.first.created_at.strftime("%m/%d/%y %R") %></div>
-</div> 
-<% end %>
--->
-
-
-<span>
-	<span id="biteCount">
-		<div id="number"><%= Bite.accessible.count %></div>#Bites</span>
-</span>	
+	</div>
 	
-<span style="position:absolute; left:120px;">
-<% @bites.each do |bite| %>
-<span class="biteContainer">
-  <div class=latest_image><%= image_tag bite.normalized_image_url %></div>
-	<div class="bite_time">bite@ <%= bite.created_at.strftime("%m/%d/%y %R") %></div>
-  <!-- <span>from <%= link_to bite.url, bite.url %></span> -->
-</span>
-<% end %>
-</span>
+	<div class="ip_list">
+		<div class="title">Top 20 Sources</div>
+		<% @factor = get_factor(@top_sources) %>
+		<% @top_sources.each do |source| %>		
+  		<% unless source[0].nil? %>
+  		<div class="ip" style="font-size:<%= get_font_size(@factor, source[1], @top_sources[-1][1]) %>px">
+  		  <%= source[0].gsub(/^www\./, '') %> <span style="font-style:italic"><%= source[1] %></span>
+  		</div>
+  		<% end %>
+		<% end %>
+	</div>
+
+</div>
+	
+</center>
+
+<div id="menu">
+	<span id="monster_wall"><a href="/" class="selected">Monster Wall</a></span> /
+	<span id="monster_about"><a href="/about">About</a></span>
+</div>
