@@ -7,13 +7,12 @@ $(document).ready(function() {
 function initIPList() {
 	$('.ip_list .ip').click(function() {
 	  var img_domain = $(this).attr('rel');
+	  $('.img_container a').animate({opacity: 1.0}, 600);
 	  
 		if( $(this).hasClass('ip_selected') ) {
 			$(this).removeClass('ip_selected');
-			// gray out others
-			$('.img_container a').not('.'+img_domain).animate({opacity: 1.0}, 600);
-		}
-		else {
+		} else {
+		  $('.ip_list .ip').removeClass('ip_selected');
 			$(this).addClass('ip_selected');
 			// gray out others
 			$('.img_container a').not('.'+img_domain).animate({opacity: 0.5}, 600);
