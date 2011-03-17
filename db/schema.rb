@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110314235801) do
+ActiveRecord::Schema.define(:version => 20110317052239) do
 
   create_table "bites", :force => true do |t|
     t.string   "url"
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(:version => 20110314235801) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "bites_photos", ["bite_id"], :name => "index_bites_photos_on_bite_id"
+  add_index "bites_photos", ["photo_id"], :name => "index_bites_photos_on_photo_id"
 
   create_table "photos", :force => true do |t|
     t.string   "original_url"
