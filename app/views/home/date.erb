@@ -4,7 +4,7 @@
 
 	<div class="content">
 		
-		<div id="latest_label">Monster Bites on <%= @date.strftime("%b.%e.%Y") %></div>
+		<div id="latest_label"> <span id="menu_return"><a href="/">Monster Wall</a></span> > Bites on <%= @date.strftime("%b.%e.%Y") %></div>
 		
 		<div class="today clear_fix">
 			<div class="left_col left">
@@ -26,7 +26,7 @@
 	</div>
 	
 	<div class="ip_list clickable_list">
-		<div class="title">Top 10 Crime Scenes</div>
+		<div class="title">Top 10 Sites</div>
 		<%= render :partial => 'shared/top_sources', :locals => { :top_sources => @top_sources } %>
 	</div>
 
