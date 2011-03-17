@@ -18,7 +18,7 @@ class Bite < ActiveRecord::Base
   end
   
   def self.on(date)
-    return visible.accessible.includes(:photos).where(:created_at => (date)..(date+1.day)).order('created_at DESC')
+    return visible.accessible.includes(:photos).where(:created_at => (date)..(date+1.day)).order('bites.created_at DESC')
   end
   
   def self.top_sources_on(date)
