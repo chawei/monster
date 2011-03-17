@@ -45,6 +45,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcached (1.2.2)
     mime-types (1.16)
     mysql2 (0.2.6)
     paperclip (2.3.8)
@@ -84,6 +85,7 @@ PLATFORMS
 DEPENDENCIES
   aws-s3
   httparty
+  memcached
   mysql2
   paperclip
   rails (= 3.0.5)
