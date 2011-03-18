@@ -7,7 +7,7 @@
 		<div class="today">
 			<div class="left_col left">
 				<div class="date">
-				  <%= link_to @today_bites.count, date_path(:date => @today_date.strftime("%Y%m%d")), :id => 'count' %>
+				  <%= link_to @today_count, date_path(:date => @today_date.strftime("%Y%m%d")), :id => 'count' %>
 				</div>
 			</div>
 		
@@ -24,7 +24,7 @@
 			<div class="clear"></div>
 		</div>
 		
-		<% cache("date-archive") do %>
+		<% cache("date-archive", :expires_in => 6.hours) do %>
 		<div id="calendar">
 			<div class="month clear">
 				<div id="archive">Archive</div>

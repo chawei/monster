@@ -13,6 +13,7 @@ class BitesController < ApplicationController
   # GET /bites
   # GET /bites.xml
   def index
+    @today_count = Bite.today.count
     @today_bites = Bite.today.limit(50)
     @today_date = Date.today
     @top_sources = Bite.top_sources.limit(20).map { |b| [b.domain_name, b.cnt] }
