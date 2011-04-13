@@ -8,33 +8,52 @@ class Bite < ActiveRecord::Base
   before_save   :get_domain_name
   after_create  :create_photo_by_image_url
   
+  def self.admin_photos
+    accessible.order('created_at DESC').limit(300)
+  end
+  
+  def self
+    
+  end
+  
   def self.without_photo
-    joins("LEFT OUTER JOIN bites_photos ON bites_photos.bite_id = bites.id").where("bites_photos.photo_id IS NULL")
+    joins("LEFT OUTER JOIN bites_photos ON bites_photos.bite_id = bites.id").
+    where("bites_photos.photo_id IS NULL")
   end
   
   def self.today
     date = Date.today
-    return on(date)
+    return public_facing.includes(:photos).on(date).order('bites.created_at DESC')
+  end
+  
+  def self.public_facing
+    visible.accessible
   end
   
   def self.on(date)
-    return visible.accessible.includes(:photos).where(:created_at => (date)..(date+1.day)).order('bites.created_at DESC')
+    where(:created_at => (date)..(date+1.day))
+  end
+  
+  def self.top_20_sources_in_hash
+    top_sources.limit(20).map { |b| [b.domain_name, b.cnt] }
   end
   
   def self.top_sources_on(date)
-    select("count(*) as cnt, domain_name").visible.accessible.where(:created_at => (date)..(date+1.day)).group("domain_name").order("cnt DESC")
+    top_sources.on(date)
   end
   
   def self.top_sources
-    select("count(*) as cnt, domain_name").visible.accessible.group("domain_name").order("cnt DESC")
+    select("count(*) as cnt, domain_name").
+    public_facing.group("domain_name").
+    order("cnt DESC")
   end
   
   def self.count_on(date)
-    visible.accessible.where(:created_at => (date)..(date+1.day)).count
+    public_facing.on(date).count
   end
   
   def self.all_count
-    visible.accessible.count
+    public_facing.count
   end
   
   def get_domain_name

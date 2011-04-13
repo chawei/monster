@@ -6,12 +6,4 @@ class HomeController < ApplicationController
     @top_sources = Bite.top_sources_on(@date).limit(10).map { |b| [b.domain_name, b.cnt] }
   end
   
-  def about
-    
-  end
-  
-  def tutorial
-    
-  end
-  
 end

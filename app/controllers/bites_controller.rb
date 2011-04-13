@@ -2,7 +2,7 @@ class BitesController < ApplicationController
   cache_sweeper :bite_sweeper
   
   def admin
-    @bites = Bite.accessible.order('created_at DESC').limit(300)
+    @bites = Bite.admin_photos
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,10 +13,10 @@ class BitesController < ApplicationController
   # GET /bites
   # GET /bites.xml
   def index
+    @today_date  = Date.today
     @today_count = Bite.today.count
     @today_bites = Bite.today.limit(50)
-    @today_date = Date.today
-    @top_sources = Bite.top_sources.limit(20).map { |b| [b.domain_name, b.cnt] }
+    @top_sources = Bite.top_20_sources_in_hash
     
     respond_to do |format|
       format.html # index.html.erb
@@ -102,16 +102,10 @@ class BitesController < ApplicationController
   end
   
   def upload
-    @bite = Bite.new
-    @bite.url = params[:url]
-    @bite.image_url = params[:image_url]
-    @bite.top  = params[:top]
-    @bite.left = params[:left]
-    @bite.width  = params[:width]
-    @bite.height = params[:height]
+    @bite = BiteFactory.new(params)
 
     respond_to do |format|
-      if @bite.save
+      unless @bite.new_record?
         format.html { redirect_to(@bite, :notice => 'Bite was successfully created.') }
         format.xml  { render :xml => @bite, :status => :created, :location => @bite }
       else

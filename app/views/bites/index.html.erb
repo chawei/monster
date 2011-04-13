@@ -1,86 +1,70 @@
 <center>
-<div id="main" class="clear_fix">
-	<div class="content">
+  <div id="main" class="clear_fix">
+  	<div class="content">
 		
-		<div id="latest_label">Latest 50 Bites of Today</div>
+  		<div id="latest_label">Latest 50 Bites of Today</div>
 		
-		<div class="today">
-			<div class="left_col left">
-				<div class="date">
-				  <%= link_to @today_count, date_path(:date => @today_date.strftime("%Y%m%d")), :id => 'count' %>
-				</div>
-			</div>
-		
-			<div class="img_container">
-			  <% unless @today_bites.empty? %>
-			  <%= link_to date_path(:date => @today_date.strftime("%Y%m%d")) do %>
-  			  <% @today_bites.each do |bite| %>
-  			    <span><%= image_tag bite.photo.data.url(:thumb) unless bite.photo.nil? %></span>
-  			  <% end %>
-			  <% end %>
-			  <% end %>
-			</div>
-			
-			<div class="clear"></div>
-		</div>
-		
-		<% cache("date-archive", :expires_in => 6.hours) do %>
-		<div id="calendar">
-			<div class="month clear">
-				<div id="archive">Archive</div>
-			</div>
-			
-			<% months = [] %>
-			<% @today_date.month.downto(1) { |n| months << n } %>
-			
-			<div class="month clear_fix">
-				<div class="title"><%= Date::ABBR_MONTHNAMES[@today_date.month] %> 2011</div>
-				<div class="dates_container left expanded">
-				  <div class="dates clear_fix">
-    				<% (@today_date - 1.day).downto(Date.civil(2011, @today_date.month, 1)) do |date| %>
-    				<div class="date">
-    					<%= link_to Bite.count_on(date), date_path(:date => date.strftime("%Y%m%d")), :class => 'count' %>
-    					<div class="time"><%= date.day.ordinalize %></div>
-    				</div>
-    				<% end %>
-    			</div>
-    		</div>
-			</div>
-			
-			<% months[1..-1].each do |month| %>
-			<% month_name = Date::ABBR_MONTHNAMES[month] %>
-			<div class="month clear_fix">
-				<div class="title left"><%= month_name %> 2011</div>
-				<div class="dates_container left hidden">
-				  <div class="dates clear_fix">
-    				<% Date.civil(2011, month, -1).downto(Date.civil(2011, month, 1)) do |date| %>
-    				<div class="date">
-    					<%= link_to Bite.count_on(date), date_path(:date => date.strftime("%Y%m%d")), :class => 'count' %>
-    					<div class="time"><%= date.day.ordinalize %></div>
-    				</div>
-    				<% end %>
-    			</div>
+  		<div class="today">
+  			<div class="left_col left">
+  				<div class="date">
+  				  <%= link_to @today_count, date_path(:date => @today_date.strftime("%Y%m%d")), :id => 'count' %>
+  				</div>
   			</div>
-			</div>
-			<% end %>			
-		</div>
-    <% end %>
-	</div>
-	
-	<div class="ip_list">		
-	  <div class="section">
-  		<div class="title">Top 20 Sites</div>
-  		<%= render :partial => 'shared/top_sources', :locals => { :top_sources => @top_sources } %>
+		
+  			<div class="img_container">
+  			  <% unless @today_bites.empty? %>
+  			  <%= link_to date_path(:date => @today_date.strftime("%Y%m%d")) do %>
+    			  <% @today_bites.each do |bite| %>
+    			    <span><%= image_tag bite.photo.data.url(:thumb) unless bite.photo.nil? %></span>
+    			  <% end %>
+  			  <% end %>
+  			  <% end %>
+  			</div>
+			
+  			<div class="clear"></div>
+  		</div>
+		
+  		<% cache("date-archive", :expires_in => 6.hours) do %>
+  		<div id="calendar">
+  			<div class="month clear">
+  				<div id="archive">Archive</div>
+  			</div>
+			
+  			<% months = [] %>
+  			<% @today_date.month.downto(1) { |n| months << n } %>			  
+  			<% months[0..-1].each do |month| %>  			
+    			<% down_from_this_date = (months.index(month) == 0 ? (@today_date - 1.day) : Date.civil(2011, month, -1)) %>
+    			<div class="month clear_fix">
+    				<div class="title left"><%= Date::ABBR_MONTHNAMES[month] %> 2011</div>
+    				<div class="dates_container left <%= @today_date.month == month ? '' : 'hidden' %>">
+    				  <div class="dates clear_fix">
+        				<% down_from_this_date.downto(Date.civil(2011, month, 1)) do |date| %>
+        				<div class="date">
+        					<%= link_to Bite.count_on(date), date_path(:date => date.strftime("%Y%m%d")), :class => 'count' %>
+        					<div class="time"><%= date.day.ordinalize %></div>
+        				</div>
+        				<% end %>
+        			</div>
+      			</div>
+    			</div>
+  			<% end %>			
+  		</div>
+      <% end %>
   	</div>
-  	
-  	<div class="section">
-		  <div class="title">Total Bites</div>
-		  <%= Bite.all_count %>
-		</div>
-	</div>
-
-</div>
 	
+  	<div class="ip_list">		
+  	  <div class="section">
+    		<div class="title">Top 20 Sites</div>
+    		<%= render :partial => 'shared/top_sources', :locals => { :top_sources => @top_sources } %>
+    	</div>
+  	
+    	<div class="section">
+  		  <div class="title">Total Bites</div>
+  		  <%= Bite.all_count %>
+  		</div>
+  	</div>
+
+  </div>	
 </center>
 
 <div id="menu">
