@@ -102,7 +102,7 @@ class BitesController < ApplicationController
   end
   
   def upload
-    @bite = BiteFactory.new(params)
+    @bite = BiteFactory.create(params)
 
     respond_to do |format|
       unless @bite.new_record?
