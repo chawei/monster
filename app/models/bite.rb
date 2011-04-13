@@ -4,16 +4,15 @@ class Bite < ActiveRecord::Base
   scope :accessible, :conditions => { :accessible => true }
   scope :visible, :conditions => ["hidden is NULL or hidden = ?", false ]
   
+  validates :url, :presence => true
+  validates :image_url, :presence => true
+  
   before_create :set_accessible
   before_save   :get_domain_name
   after_create  :create_photo_by_image_url
   
   def self.admin_photos
     accessible.order('created_at DESC').limit(300)
-  end
-  
-  def self
-    
   end
   
   def self.without_photo
