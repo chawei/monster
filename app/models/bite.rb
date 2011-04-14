@@ -2,6 +2,7 @@ class Bite < ActiveRecord::Base
   has_and_belongs_to_many :photos
   
   scope :accessible, :conditions => { :accessible => true }
+  scope :unaccessible, :conditions => { :accessible => false }
   scope :visible, :conditions => ["hidden is NULL or hidden = ?", false ]
   
   validates :url, :presence => true
@@ -80,6 +81,8 @@ class Bite < ActiveRecord::Base
   end
   
   def normalized_image_url
+    return '' if self.image_url.blank?
+    
     if self.image_url =~ /^http/
       return self.image_url
     elsif match = self.image_url.match(/^[\/][^\/].*/)
@@ -90,19 +93,22 @@ class Bite < ActiveRecord::Base
     elsif match = self.image_url.match(/^\/\/(.*)/)
       new_image_url = match[1]
       return "http://#{new_image_url}"
-    else 
-      if match = self.image_url.match(/^[\.\w].*/)
-        new_image_url = match[0]
-      end
-      uri = self.url.match(/(.*\/)/)[0]
-      return "#{uri}#{new_image_url}"
+    elsif match = self.image_url.match(/^[\w].*/)
+      return "#{self.url}/#{match[0]}"
+    else
+      return self.image_url
     end
   end
   
   protected
   
     def set_accessible
-      res = HTTParty.get(URI.escape(self.normalized_image_url))
-      res.code == 200 ? self.accessible = true : self.accessible = false
+      begin
+        res = HTTParty.get(URI.escape(self.normalized_image_url))
+        res.code == 200 ? self.accessible = true : self.accessible = false
+      rescue
+        self.accessible = false
+      end
+      nil
     end
 end
