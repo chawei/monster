@@ -54,7 +54,7 @@ GEM
       treetop (~> 1.4.8)
     memcache-client (1.8.5)
     mime-types (1.16)
-    mysql2 (0.2.6)
+    mysql (2.8.1)
     paperclip (2.3.8)
       activerecord
       activesupport
@@ -114,7 +114,7 @@ DEPENDENCIES
   factory_girl_rails
   httparty
   memcache-client
-  mysql2
+  mysql
   paperclip
   rails (= 3.0.5)
   rspec
