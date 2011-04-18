@@ -49,8 +49,8 @@ body {
   margin: auto;
   width: 416px;
   height: 1024px;
-  border: 1px solid #fff;
-      position: relative;
+  /*border: 1px solid #fff;*/
+  position: relative;
 }
   #container .content {
     width: 100%;
