@@ -73,7 +73,7 @@
       } else {
         clearInterval(monsterInterval);
       }
-    }, 10000);
+    }, 12000);
   });
   
   function displayImages(date) {
@@ -96,7 +96,7 @@
     $.ajax({
       url: '/exhibition/top_sources.js?date='+date,
       success: function(data) {
-        $('#top_sources').html(data).hide().fadeIn(10000);
+        $('#top_sources').html(data).hide().fadeIn(8000);
       }
     });
   }
