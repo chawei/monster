@@ -38,11 +38,16 @@
   src: url('../font/TradeGotBolConTweObl.ttf'); 
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
 	font-family: "Simple", sans-serif;
   text-align: left;
   background-color: #000;
 	color: #FFFFFF;
+  overflow: hidden;
 }
 
 #container {
@@ -79,6 +84,9 @@ body {
   #container .date .time {
     padding-top: 8px;
   }
+  #container .date .count {
+    line-height: 47px;
+  }
   
 .today .img_container {
   width:100%;
@@ -103,10 +111,10 @@ body {
     border: none;
   }
   .ip_list .ip {
-    color:#fff;
+    color:#000;
     font-family: Simple;
     font-style: oblique;
-    background-color: rgba(255,255,0,0.5);
+    background-color: rgba(255,255,255,1);
     display: inline-block;
     padding:2px 5px 0px 5px;
     margin-top:6px;
