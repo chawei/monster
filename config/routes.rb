@@ -8,6 +8,8 @@ Monster::Application.routes.draw do
   match "/tutorial", :to => "home#tutorial"
   match "/admin", :to => "bites#admin"
   
+  match "/exhibition/date", :to => "exhibition#date"
+  
   resources :bites do 
     collection do
       get 'upload'

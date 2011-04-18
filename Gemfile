@@ -19,5 +19,6 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+	gem 'mysql2'
   gem 'sqlite3'
 end

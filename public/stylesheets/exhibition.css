@@ -1,0 +1,92 @@
+@font-face { 
+  font-family: Simple;
+  src: url('../font/Simple/SimplReg.ttf'); 
+}
+@font-face { 
+  font-family: Simple;
+  font-weight: bold;
+  src: url('../font/Simple/SimplBol.ttf'); 
+}
+@font-face { 
+  font-family: Simple;
+  font-style: oblique;
+  font-weight: bold;
+  src: url('../font/Simple/SimplBolObl.ttf'); 
+}
+@font-face { 
+  font-family: Simple;
+  font-style: oblique;
+  src: url('../font/Simple/SimplObl.ttf'); 
+}
+
+@font-face { 
+  font-family: TradeGothic;
+  font-weight: normal;
+  font-stretch: normal;
+  src: url('../font/TradeGot.ttf'); 
+}
+
+@font-face { 
+  font-family: TradeGothic;
+  font-weight: bold;
+  src: url('../font/TradeGotBol.ttf');
+}
+
+@font-face { 
+  font-family: TradeGothicCon;
+  font-weight: bold;
+  src: url('../font/TradeGotBolConTweObl.ttf'); 
+}
+
+body {
+	font-family: "Simple", sans-serif;
+  text-align: left;
+  background-color: #000;
+	color: #FFFFFF;
+}
+
+#container {
+  margin: auto;
+  width: 416px;
+  height: 1024px;
+  border: 1px solid #fff;
+      position: relative;
+}
+  #container .content {
+    width: 100%;
+
+  }
+  #container #latest_label {
+    margin:0px;
+    border:none;
+  }
+  #container .date {
+    float: none;
+  }
+  
+.today .img_container {
+  width:100%;
+}
+  .today img {
+    width:40px;
+    height:40px;
+  }
+  
+.ip_list {
+  margin: 0px;
+  position: absolute;
+  top: 120px;
+  left: 30px;
+}
+  .ip_list .title {
+    border: none;
+  }
+  .ip_list .ip {
+    color:#fff;
+    font-family: Simple;
+    font-style: oblique;
+    background-color: rgba(255,255,0,0.5);
+    display: inline-block;
+    padding:2px 5px 0px 5px;
+    margin-top:6px;
+  }
