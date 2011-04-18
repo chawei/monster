@@ -54,22 +54,42 @@ body {
 }
   #container .content {
     width: 100%;
-
+    float: none;
+    margin: 0 0 50px 0;
   }
   #container #latest_label {
     margin:0px;
     border:none;
   }
-  #container .date {
+  #container .month {
+    margin: 0 0 0 20px;
+  }
+  #container .month .title {
+    text-align: left;
     float: none;
+    display: block;
+    margin: 0 0 15px 9px;
+  }
+  #container .dates_container {
+    width: inherit;
+  }
+  #container .dates_container .date {
+    margin: 0px 18px 10px 0px;
+  }
+  #container .date .time {
+    padding-top: 8px;
   }
   
 .today .img_container {
   width:100%;
 }
+  .today .img_container a {
+		width: 40px;
+    height: 40px;
+	}
   .today img {
-    width:40px;
-    height:40px;
+    width: 40px;
+    height: 40px;
   }
   
 .ip_list {
@@ -77,6 +97,7 @@ body {
   position: absolute;
   top: 120px;
   left: 30px;
+  width: 340px;
 }
   .ip_list .title {
     border: none;

@@ -27,7 +27,24 @@
 		<!-- <div class="title">Top 10 Sites</div> -->
 		<%= render :partial => 'shared/top_sources', :locals => { :top_sources => @top_sources } %>
 	</div>
-
+	
+	<div id="calendar">
+  	<% down_from_this_date = @today_date %>
+  	<% month = @today_date.month %>
+  	<div class="month clear_fix">
+  		<div class="title left"><%= Date::ABBR_MONTHNAMES[month] %> 2011</div>
+  		<div class="dates_container left">
+  		  <div class="dates clear_fix">
+  				<% down_from_this_date.downto(@today_date - 9.days) do |date| %>
+  				<div class="date">
+  					<%= link_to Bite.count_on(date), date_path(:date => date.strftime("%Y%m%d")), :class => 'count' %>
+  					<div class="time"><%= date.day.ordinalize %></div>
+  				</div>
+  				<% end %>
+  			</div>
+  		</div>
+  	</div>
+  </div>
 </div>
 	
 <% end %>

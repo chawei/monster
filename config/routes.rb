@@ -8,7 +8,9 @@ Monster::Application.routes.draw do
   match "/tutorial", :to => "home#tutorial"
   match "/admin", :to => "bites#admin"
   
+  match "/exhibition", :to => "exhibition#index"
   match "/exhibition/date", :to => "exhibition#date"
+  match "/exhibition/top_sources", :to => "exhibition#top_sources"
   
   resources :bites do 
     collection do

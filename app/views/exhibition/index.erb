@@ -1,0 +1,105 @@
+<% cache("date-#{params[:date]}") do %>
+
+<div id="container" class="clear_fix">
+
+	<div class="content">
+		
+		<div class="today clear_fix">
+
+			<div class="img_container">
+			  <% 150.times.each do |t| %>
+			    <a id="img_<%= t %>" class="no_image"></a>
+			  <% end %>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div id="top_sources" class="ip_list clickable_list">
+	</div>
+	
+	<div id="calendar">
+  	<% down_from_this_date = @today_date %>
+  	<% month = @today_date.month %>
+  	<div class="month clear_fix">
+  		<div class="title"><%= Date::ABBR_MONTHNAMES[month] %> 2011</div>
+  		<div class="dates_container">
+  		  <div class="dates clear_fix">
+  				<% down_from_this_date.downto(@today_date - 9.days) do |date| %>
+  				<div id="date_<%= date.strftime("%Y%m%d") %>"class="date">
+  					<%= link_to Bite.count_on(date), date_path(:date => date.strftime("%Y%m%d")), :class => 'count' %>
+  					<div class="time"><%= date.day.ordinalize %></div>
+  				</div>
+  				<% end %>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+</div>
+	
+<% end %>
+
+
+<% content_for :head do %>
+<link rel="stylesheet" type="text/css" href="/javascripts/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+<%= stylesheet_link_tag 'exhibition' %>
+<% end %>
+
+<% content_for :foot do %>
+<script type="text/javascript" src="/javascripts/date.format.js"></script>
+<script type="text/javascript" charset="utf-8">
+//(function(){
+  var dates = [];
+  var currentIndex = 0;
+  var now = new Date();
+  var monsterInterval;
+  
+  for (var i=0; i<10; i++) {
+    dates.push(now.format('yyyymmdd'));
+    now.setDate(now.getDate()-1);
+  }
+  
+  $(document).ready(function() {
+    //var date = $.url.param('date');
+    var date = dates[currentIndex];
+    displayImages(date);
+    currentIndex++;
+    
+    monsterInterval = setInterval(function(){
+      if (currentIndex < 10) {
+        var date = dates[currentIndex];
+        displayImages(date);
+        currentIndex++;
+      } else {
+        clearInterval(monsterInterval);
+      }
+    }, 10000);
+  });
+  
+  function displayImages(date) {
+    $('.img_container a').addClass('no_image').html('');
+    $('.date .count').css('background-image', 'url(/assets/circle_45_gray.png)').css('color', '#999');
+    $('#date_'+date+' .count').css('background-image', 'url(/assets/circle_45.png)').css('color', '#fff');
+    
+    $.getJSON('/exhibition/date.json?date='+date, function(data){
+      $.each(data.bites, function(index, elem) {
+        var len = $('.img_container a.no_image').length;
+        var index = Math.floor(Math.random() * len);
+        (function(){
+          setTimeout(function(){
+            $('#img_'+index).html(elem.image_html).removeClass('no_image');
+          }, Math.random()*5000);
+        })();
+      });
+    });
+
+    $.ajax({
+      url: '/exhibition/top_sources.js?date='+date,
+      success: function(data) {
+        $('#top_sources').html(data).hide().fadeIn(10000);
+      }
+    });
+  }
+//})();
+</script>
+<% end %>

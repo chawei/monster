@@ -100,6 +100,20 @@ class Bite < ActiveRecord::Base
     end
   end
   
+  def self.for_exhibition(date)
+    top_sources = top_sources_on(date).limit(10).map { |b| { 'domain_name' => b.domain_name, 'count' => b.cnt } }
+    results = { 'top_sources' => top_sources, 'bites' => [] }
+    
+    bites = on(date)
+    bites.each do |bite|
+      if bite.photo
+        result = { 'id' => "bite-#{bite.id}", "image_html" => "<img src='#{bite.photo.data.url(:thumb)}' />" }
+        results['bites'] << result
+      end
+    end
+    return results
+  end
+  
   protected
   
     def set_accessible
