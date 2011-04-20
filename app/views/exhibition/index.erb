@@ -1,7 +1,6 @@
+<% cache("monster-exhibition", :expires_in => 6.hours) do %>
 <div id="container" class="clear_fix">
-
 	<div class="content">
-		
 		<div class="today clear_fix">
 
 			<div class="img_container">
@@ -10,7 +9,6 @@
 			  <% end %>
 			</div>
 		</div>
-		
 	</div>
 	
 	<div id="top_sources" class="ip_list clickable_list">
@@ -34,6 +32,7 @@
   	</div>
   </div>
 </div>
+<% end %>
 
 <% content_for :head do %>
 <link rel="stylesheet" type="text/css" href="/javascripts/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
