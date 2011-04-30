@@ -76,7 +76,8 @@
     $('#date_'+date+' .count').css('background-image', 'url(/assets/circle_45.png)').css('color', '#fff');
     
     $.getJSON('/exhibition/date.json?date='+date, function(data){
-      $.each(data.bites, function(index, elem) {
+      var bites = data.bites.slice(0,150);
+      $.each(bites, function(index, elem) {
         var len = $('.img_container a.no_image').length;
         var index = Math.floor(Math.random() * len);
         (function(){
