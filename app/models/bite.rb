@@ -26,6 +26,10 @@ class Bite < ActiveRecord::Base
     return public_facing.includes(:photos).on(date).order('bites.created_at DESC')
   end
   
+  def self.public_on(date)
+    public_facing.on(date).order('bites.created_at DESC').includes(:photos)
+  end
+  
   def self.public_facing
     visible.accessible
   end
