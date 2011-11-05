@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
-gem 'mysql'
+gem 'pg'
 
 gem 'simple-navigation'
 gem 'httparty'
@@ -21,4 +21,5 @@ group :development, :test do
   gem 'factory_girl_rails'
 	gem 'mysql2'
   gem 'sqlite3'
+  gem 'pg'
 end
