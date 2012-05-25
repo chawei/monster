@@ -33,12 +33,12 @@
   			<% months = [] %>
   			<% @today_date.month.downto(1) { |n| months << n } %>			  
   			<% months[0..-1].each do |month| %>  			
-    			<% down_from_this_date = (months.index(month) == 0 ? (@today_date - 1.day) : Date.civil(2011, month, -1)) %>
+    			<% down_from_this_date = (months.index(month) == 0 ? (@today_date - 1.day) : Date.civil(2012, month, -1)) %>
     			<div class="month clear_fix">
-    				<div class="title left"><%= Date::ABBR_MONTHNAMES[month] %> 2011</div>
+    				<div class="title left"><%= Date::ABBR_MONTHNAMES[month] %> 2012</div>
     				<div class="dates_container left <%= @today_date.month == month ? '' : 'hidden' %>">
     				  <div class="dates clear_fix">
-        				<% down_from_this_date.downto(Date.civil(2011, month, 1)) do |date| %>
+        				<% down_from_this_date.downto(Date.civil(2012, month, 1)) do |date| %>
         				<div class="date">
         					<%= link_to Bite.count_on(date), date_path(:date => date.strftime("%Y%m%d")), :class => 'count' %>
         					<div class="time"><%= date.day.ordinalize %></div>
