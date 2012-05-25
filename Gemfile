@@ -8,6 +8,7 @@ gem 'mysql2'
 gem 'simple-navigation'
 gem 'httparty'
 
+gem 'aws-sdk'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'paperclip'
 gem 'memcache-client'
