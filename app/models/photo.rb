@@ -9,7 +9,7 @@ class Photo < ActiveRecord::Base
                              :secret_access_key => S3[:secret] },
                            :bucket => S3[:bucket],
                            :path => "photos/:id/:style.:extension",
-                           :url => "/images/s3/photos/default_:style.png"
+                           :default_url => "/images/s3/photos/default_:style.png"
   
   before_create :download_remote_image
                          
